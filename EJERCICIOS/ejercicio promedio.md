@@ -1,12 +1,28 @@
 EJERCICIO
+
+## VERSION 1 
+
 calcular el promeddio de un estudiante de PILARES
+
 primer periodo
-    introduccion:6.7
-    computo1; 8.0
+
+    * taller:6.7
+    * computo; 8.0
+    
 segundo periodo
-    introduccion:5.7
-    computo1; 9
+
+    * taller:5.7
+    * computo; 9
+    
 tercer periodo
-    introduccion:9.9
-    computo1; 6.8
+
+    * taller:9.92
+    * computo; 6.8
+    
 calcular y mostrar por consola promedio por periodo y promedio general
+
+## VERSION 2
+Se deben solicitar por prompt las calificaciones y además agregar el nombre del estudiante, también su estatus de acuerdo al promedio general, menor de 6 es REPROBADO, de 6.1 a 8 es BIEN, de 8.1 a 9 es MUY BIEN y de 9.1 a 10 es EXCELENTE.
+
+## VERSION 3
+Se deben pedir datos de N número de alumnos y los periodos deben estar en ciclo
