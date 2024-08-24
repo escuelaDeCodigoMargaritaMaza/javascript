@@ -46,3 +46,8 @@
 
 ### JS
     alert("Hola Mundo"):
+
+## VERSION 3
+### JS
+    var nombre = "David";
+    alert("Buena tarde " + nombre);
