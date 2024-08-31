@@ -142,3 +142,6 @@ Se deben pedir datos de N número de alumnos y los periodos deben estar en ciclo
 
 ## VERSION 4
 Se debe agregar la fecha de las calificaciones y poder visualizalas
+
+![image](https://github.com/user-attachments/assets/ef1eb5f4-f3c6-4295-9142-850ec73c6add)
+
