@@ -102,6 +102,43 @@ Se deben solicitar por prompt las calificaciones y además agregar el nombre del
 ## VERSION 3
 Se deben pedir datos de N número de alumnos y los periodos deben estar en ciclo
 
+    var captura = confirm("Deseas capturar un alumno ");
+    
+    while(captura == true){
+        var sumaPeriodo = 0;
+        for(var j = 0;j < 3;j++){
+            var suma = 0;
+            var promedioPeriodo=0;
+            for(var i = 0;i < 3; i++){
+                var calificacion = parseFloat(prompt(`ingresa la calificación ${i +1} del periodo ${j+1}`));
+                var suma = suma + calificacion;
+            }
+            promedioPeriodo = suma/3;
+            alert(`promedio del periodo  ${j + 1} = ${promedioPeriodo}`);
+            sumaPeriodo = sumaPeriodo + promedioPeriodo;
+        }
+        var promedio = sumaPeriodo/3;
+    
+        switch(true){
+            case promedio < 6:
+                alert(`REPROBADO, PROMEDIO: ${promedio}`);
+                break;
+            case promedio < 8:
+                alert(`BIEN, PROMEDIO: ${promedio}`);
+                break;
+            case promedio < 10:
+                alert(`MUY BIEN, PROMEDIO: ${promedio}`);
+                break;
+            case promedio == 10:
+                alert(`EXCELENTE, PROMEDIO: ${promedio}`);
+                break;
+        }
+    
+        captura = confirm("Deseas capturar un alumno ");
+    }
+    alert("Adios ");
+
+
 
 ## VERSION 4
 Se debe agregar la fecha de las calificaciones y poder visualizalas
