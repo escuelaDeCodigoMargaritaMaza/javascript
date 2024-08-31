@@ -49,5 +49,59 @@ calcular y mostrar por consola promedio por periodo y promedio general, ademas d
 ## VERSION 2
 Se deben solicitar por prompt las calificaciones y además agregar el nombre del estudiante, también su estatus de acuerdo al promedio general, menor de 6 es REPROBADO, de 6.1 a 8 es BIEN, de 8.1 a 9 es MUY BIEN y de 9.1 a 10 es EXCELENTE.
 
+        var captura = confirm("Deseas capturar un alumno ");
+        if(captura == true){
+            var calificacion = parseFloat(prompt("ingresa la calificación"));
+            var suma = 0;
+            suma = suma + calificacion;
+            calificacion = parseFloat(prompt("ingresa la calificación"));
+            suma = suma + calificacion;
+            calificacion = parseFloat(prompt("ingresa la calificación"));
+            suma = suma + calificacion;
+            var periodo1 = suma / 3;
+            suma = 0;
+            calificacion = parseFloat(prompt("ingresa la calificación"));
+            suma = suma + calificacion;
+            calificacion = parseFloat(prompt("ingresa la calificación"));
+            suma = suma + calificacion;
+            calificacion = parseFloat(prompt("ingresa la calificación"));
+            suma = suma + calificacion;
+            var periodo2 = suma/3;
+            suma = 0;
+            calificacion = parseFloat(prompt("ingresa la calificación"));
+            suma = suma + calificacion;
+            calificacion = parseFloat(prompt("ingresa la calificación"));
+            suma = suma + calificacion;
+            calificacion = parseFloat(prompt("ingresa la calificación"));
+            suma = suma + calificacion;
+            var periodo3 = suma/3;
+            var promedio = (periodo1  + periodo2 + periodo3)/3;
+            // alert("periodo 1: "  + periodo1 + "\nperiodo2: " + periodo2);
+            alert(`periodo 1: ${periodo1} \nperiodo2: ${periodo2} \nperiodo3: ${periodo3} \npromedio: ${promedio} `);
+        
+            switch(true){
+                case promedio < 6:
+                    alert("REPROBADO");
+                    break;
+                case promedio < 8:
+                    alert("BIEN");
+                    break;
+                case promedio < 10:
+                    alert("MUY BIEN");
+                    break;
+                case promedio == 10:
+                    alert("EXCELENTE");
+                    break;
+            }
+        
+        }else{
+            alert("Adios ");
+        }
+
+
 ## VERSION 3
 Se deben pedir datos de N número de alumnos y los periodos deben estar en ciclo
+
+
+## VERSION 4
+Se debe agregar la fecha de las calificaciones y poder visualizalas
