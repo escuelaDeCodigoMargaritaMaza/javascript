@@ -145,3 +145,78 @@ Se debe agregar la fecha de las calificaciones y poder visualizalas
 
 ![image](https://github.com/user-attachments/assets/ef1eb5f4-f3c6-4295-9142-850ec73c6add)
 
+## VERSION 5
+Utilizar arreglos para almacenar los nombres de los alumnos.
+
+    var captura = confirm("Deseas capturar un alumno ");
+    var nombres = new Array();
+     while(captura == true){
+        
+        var nombre = prompt("Ingresa el nombre del alumno");
+        nombres.push(nombre); 
+        
+        captura = confirm("Deseas capturar un alumno ");
+     }
+     alert("Adios ");
+    
+    //  //impresión de todo el arreglo
+    //  console.log(nombres);
+    //  nombres.pop();
+    //  console.log(nombres);
+    //  nombres.unshift("Pedro");
+    //  nombres.shift();
+    
+    //  nombres1 = ["Andrea","Araceli","María","Angela"];
+    
+    //  var nombresUnidos=nombres.concat(nombres1);
+    //  nombresUnidos.sort();
+    //  console.log(nombresUnidos);
+    //  nombresUnidos.reverse();
+    //  console.log(nombresUnidos);
+    
+    // s
+    
+    //  //Recorrido del arreglo
+    //  for(var i = 0;i < nombres.length;i++){
+    //     console.log(nombres[i]);
+    //     if(nombres[i] == "Juan"){
+    //         break;
+    //     }
+    //  }
+
+Almacenar las calificaciones, los promedios de periodo de cada alumno
+
+        var captura = confirm("¿Deseas capturar un alumno?");
+        var nombres = [];
+        var calificaciones = []; //matriz de matrices que almacena todas las calificaciones por alumno
+        
+        while (captura) {
+            var nombre = prompt("Ingresa el nombre del alumno");
+            nombres.push(nombre);
+        
+            var calPeriodo = []; //almacenara las calificaciones en una matriz por alumno
+            for (var j = 0; j < 3; j++) {
+                var calificacionesAlumno = []; //arreglo de una linea
+                var sumaCalificaciones = 0;
+                for (var i = 0; i < 3; i++) {
+                    var calificacion = parseFloat(prompt("Ingresa la calificación " + (i + 1) + " del periodo " + (j + 1)));
+                    calificacionesAlumno.push(calificacion);
+                    sumaCalificaciones += calificacion;
+                    console.log("calificacionesAlumno: "  + calificacionesAlumno);
+                }
+                calPeriodo.push(calificacionesAlumno);
+                var promedioPeriodo = sumaCalificaciones / 3;
+                console.log("Promedio del periodo " + (j + 1) + " para " + nombre + ": " + promedioPeriodo);
+                console.log("calPeriodo " + calPeriodo);
+            }
+            calificaciones.push(calPeriodo);
+        
+            captura = confirm("¿Deseas capturar otro alumno?");
+        }
+        
+        alert("Adiós");
+        console.log(calificaciones);
+
+
+
+mostrarlos con los nombres correspondietes.
