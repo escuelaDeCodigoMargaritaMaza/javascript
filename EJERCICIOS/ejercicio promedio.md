@@ -145,6 +145,9 @@ Se debe agregar la fecha de las calificaciones y poder visualizalas
 
 ![image](https://github.com/user-attachments/assets/ef1eb5f4-f3c6-4295-9142-850ec73c6add)
 
+![image](https://github.com/user-attachments/assets/8b2003da-ae8e-4def-ade2-456428e9be3e)
+
+
 ## VERSION 5
 Utilizar arreglos para almacenar los nombres de los alumnos.
 
