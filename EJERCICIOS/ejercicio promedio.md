@@ -460,3 +460,66 @@ Agregar resulatados al DOM
         });
 
 
+## VERSION 9
+
+        document.getElementById("formulario").addEventListener("submit",function(){
+            event.preventDefault();
+            var nombre = document.getElementById("nombre").value.toUpperCase();
+            var cal1 = parseFloat(document.getElementById("cal1").value);
+            var cal2 = parseFloat(document.getElementById("cal2").value);
+            var cal3 = parseFloat(document.getElementById("cal3").value);
+        
+            var calificaciones = [cal1,cal2,cal3];
+        
+            var promedio = calcularPromedio(calificaciones);
+            mostrarEnDom(nombre,promedio); 
+        
+            document.getElementById("formulario").reset();
+        }); 
+        
+        function calcularPromedio(calificaciones){
+            var suma = 0;
+            for(var i = 0; i < calificaciones.length;i++){
+                suma = suma + calificaciones[i];
+            }
+            return suma / calificaciones.length;
+        }
+        
+        function mostrarEnDom(nombre,promedio){
+            var lista = document.getElementById("lista");
+            var li = document.createElement("li");
+            li.textContent = "Nombre: " + nombre + " Promedio: " + promedio;
+            lista.appendChild(li);
+        }   
+
+html 
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Ejemplo DOM</title>
+            <link rel="stylesheet" href="css/estilos.css">
+        </head>
+        <body>
+            <h1>REGISTRO DE CALIFICACIONES</h1>
+            <form id="formulario">
+                Nombre: <input type="text" required id="nombre" name="nombre" maxlength="20" minlength="3">
+                Calificacion 1: <input type="number" required id="cal1" min="0" max="10" step="0.1">
+                Calificacion 2: <input type="number" required id="cal2" min="0" max="10" step="0.1">
+                Calificacion 3: <input type="number" required id="cal3" min="0" max="10" step="0.1">
+                <input type="submit" value="Registrar Alumno">
+            </form>
+        
+            <h2>ALUMNOS REGISTRADOS</h2>
+            <ol id="lista"></ol>
+        
+        
+            <script src="js/main.js"></script>
+        </body>
+        </html>
+css
+        input[type="text"],[type="number"]{
+            margin-bottom: 10px;
+            display: block;
+        }
