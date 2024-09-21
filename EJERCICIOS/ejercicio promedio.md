@@ -493,6 +493,7 @@ Agregar resulatados al DOM
         }   
 
 html 
+
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -518,7 +519,9 @@ html
             <script src="js/main.js"></script>
         </body>
         </html>
+        
 css
+
         input[type="text"],[type="number"]{
             margin-bottom: 10px;
             display: block;
