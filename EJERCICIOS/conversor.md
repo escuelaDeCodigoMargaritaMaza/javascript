@@ -78,3 +78,31 @@ css.
             color:#333;
         }
            
+
+js
+
+                
+                function convertir(){
+                    var cantidadEntrada = parseFloat(document.getElementById('cantidadEntrada').value);
+                    var unidadEntrada = document.getElementById('unidadEntrada').value;
+                    var unidadSalida = document.getElementById('unidadSalida').value;
+                
+                    var total;
+                
+                    if(unidadEntrada === "metros" && unidadSalida === "kilometros" ){
+                        total = cantidadEntrada * 1000;
+                    }else if(unidadEntrada === "kilometros" && unidadSalida === "metros" ){
+                        total = cantidadEntrada / 1000;
+                    } else if(unidadEntrada === "gramos" && unidadSalida === "kilos"){
+                        total = cantidadEntrada * 1000;
+                    }else if(unidadEntrada === "kilos" && unidadSalida === "gramos" ){
+                        total = cantidadEntrada / 1000;
+                    }else if(unidadEntrada === "celsius" && unidadSalida === "fahrengeit"){
+                        total = (cantidadEntrada * 9/5) + 32;
+                    }else if(unidadEntrada === "fahrengeit" && unidadSalida === "celsius" ){
+                        total = (cantidadEntrada - 32) * 5/9;
+                    }
+                
+                    document.getElementById("datosSalida").textContent = "Resultado " + total + " " + unidadSalida;
+                
+                }
