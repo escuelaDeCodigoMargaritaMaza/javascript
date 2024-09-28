@@ -90,27 +90,52 @@ css.
 js
 
                 
-                function convertir(){
-                    var cantidadEntrada = parseFloat(document.getElementById('cantidadEntrada').value);
-                    var unidadEntrada = document.getElementById('unidadEntrada').value;
-                    var unidadSalida = document.getElementById('unidadSalida').value;
-                
-                    var total;
-                
-                    if(unidadEntrada === "metros" && unidadSalida === "kilometros" ){
-                        total = cantidadEntrada * 1000;
-                    }else if(unidadEntrada === "kilometros" && unidadSalida === "metros" ){
-                        total = cantidadEntrada / 1000;
-                    } else if(unidadEntrada === "gramos" && unidadSalida === "kilos"){
-                        total = cantidadEntrada * 1000;
-                    }else if(unidadEntrada === "kilos" && unidadSalida === "gramos" ){
-                        total = cantidadEntrada / 1000;
-                    }else if(unidadEntrada === "celsius" && unidadSalida === "fahrengeit"){
-                        total = (cantidadEntrada * 9/5) + 32;
-                    }else if(unidadEntrada === "fahrengeit" && unidadSalida === "celsius" ){
-                        total = (cantidadEntrada - 32) * 5/9;
-                    }
-                
-                    document.getElementById("datosSalida").textContent = "Resultado " + total + " " + unidadSalida;
+               
+      function convertir(){
+          var cantidadEntrada = parseFloat(document.getElementById('cantidadEntrada').value);
+          var unidadEntrada = document.getElementById('unidadEntrada').value;
+          var unidadSalida = document.getElementById('unidadSalida').value;
+      
+          var total;
+      
+          if(unidadEntrada === "metros" && unidadSalida === "kilometros" ){
+              total = cantidadEntrada / 1000;
+          }else if(unidadEntrada === "kilometros" && unidadSalida === "metros" ){
+              total = cantidadEntrada * 1000;
+          } else if(unidadEntrada === "gramos" && unidadSalida === "kilos"){
+              total = cantidadEntrada / 1000;
+          }else if(unidadEntrada === "kilos" && unidadSalida === "gramos" ){
+              total = cantidadEntrada * 1000;
+          }else if(unidadEntrada === "celsius" && unidadSalida === "fahrengeit"){
+              total = (cantidadEntrada * 9/5) + 32;
+          }else if(unidadEntrada === "fahrengeit" && unidadSalida === "celsius" ){
+              total = (cantidadEntrada - 32) * 5/9;
+          }else{
+              total = 0;
+          }
+      
+          document.getElementById("datosSalida").textContent = "Resultado " + total + " " + unidadSalida;
+      
+      }
+      
+      //API 
+      
+      async function getWeather(){
+          var city = document.getElementById("city").value;
+          var apikey = "dede1eb8ac7eddee3a46883cbb455662";
+          var url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+          try{
+              var response = await fetch(url);
+              if(!response.ok) throw new Error("Ciudad no encontrada");
+              var data = await response.json();
+              var temperature = data.main.temp;
+              var weatherDescription =data.weather[0].description;
+      
+              document.getElementById("resultadosClima").textContent = `Clima en ${city}: ${temperature} °C , ${weatherDescription}`;
+      
+          }catch{
+              document.getElementById("resultadosClima").textContent = "Error";
+          }
+      }
                 
                 }
