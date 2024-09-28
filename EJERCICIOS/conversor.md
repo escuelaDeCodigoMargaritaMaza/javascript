@@ -31,6 +31,14 @@
                         <option value="celsius">celsius</option>
                         <option value="fahrengeit">fahrengeit</option>
                     </select>
+                             <button onclick="convertir()">Convertir 🌫</button>
+                </div>
+                <p id="datosSalida"></p>
+            </div>
+        
+            <script src="js/main.js"></script>
+        </body>
+        </html>
 
 css.
 
@@ -69,11 +77,4 @@ css.
             font-size: 1.5em;
             color:#333;
         }
-                    <button onclick="convertir()">Convertir 🌫</button>
-                </div>
-                <p id="datosSalida"></p>
-            </div>
-        
-            <script src="js/main.js"></script>
-        </body>
-        </html>
+           
