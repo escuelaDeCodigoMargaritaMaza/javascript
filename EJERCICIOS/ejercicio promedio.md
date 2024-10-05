@@ -559,6 +559,22 @@ JS
                 Estatus: ${this.estatus}`
             }
         }
+        
+        document.getElementById("formulario").addEventListener("submit", function(){
+            event.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const cal1 = parseFloat(document.getElementById('cal1').value);
+            const cal2 = parseFloat(document.getElementById('cal2').value);
+            const cal3 = parseFloat(document.getElementById('cal3').value);
+        
+            var alumno = new Alumno(nombre,apellido,cal1,cal2,cal3);
+        
+            document.getElementById('salida').textContent = `${alumno.mostrarDatos()}`;
+        
+        });
+
+
 
 
 
