@@ -526,3 +526,39 @@ css
             margin-bottom: 10px;
             display: block;
         }
+
+
+# VERSION 10
+
+JS
+
+        class Alumno{
+            constructor(nombre,apellido,cal1,cal2,cal3){
+                this.nombre = nombre;
+                this.apellido= apellido;
+                this.cal1 = cal1;
+                this.cal2 = cal2;
+                this.cal3 = cal3;
+                this.promedio = this.calcularPromedio();
+                this.estatus = this.calcularEstatus();    
+            }
+            calcularPromedio(){
+                return (this.cal1+this.cal2+this.cal3)/3;
+            }
+            calcularEstatus(){
+                return this.promedio >= 6 ? "Aprobado":"Reprobado";
+            }
+            mostrarDatos(){
+                return `
+                Nombre: ${this.nombre}
+                Apellido: ${this.apellido}
+                Calificacoin1: ${this.cal1}
+                Calificacion2: ${this.cal2}
+                Calificacion3: ${this.cal2}
+                Promedio: ${this.promedio}
+                Estatus: ${this.estatus}`
+            }
+        }
+
+
+
