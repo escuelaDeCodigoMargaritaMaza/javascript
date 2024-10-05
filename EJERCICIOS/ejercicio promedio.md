@@ -532,47 +532,126 @@ css
 
 JS
 
-        class Alumno{
-            constructor(nombre,apellido,cal1,cal2,cal3){
-                this.nombre = nombre;
-                this.apellido= apellido;
-                this.cal1 = cal1;
-                this.cal2 = cal2;
-                this.cal3 = cal3;
-                this.promedio = this.calcularPromedio();
-                this.estatus = this.calcularEstatus();    
-            }
-            calcularPromedio(){
-                return (this.cal1+this.cal2+this.cal3)/3;
-            }
-            calcularEstatus(){
-                return this.promedio >= 6 ? "Aprobado":"Reprobado";
-            }
-            mostrarDatos(){
-                return `
-                Nombre: ${this.nombre}
-                Apellido: ${this.apellido}
-                Calificacoin1: ${this.cal1}
-                Calificacion2: ${this.cal2}
-                Calificacion3: ${this.cal2}
-                Promedio: ${this.promedio}
-                Estatus: ${this.estatus}`
-            }
+class Alumno{
+    constructor(nombre,apellido,cal1,cal2,cal3){
+        this.nombre = nombre;
+        this.apellido= apellido;
+        this.cal1 = cal1;
+        this.cal2 = cal2;
+        this.cal3 = cal3;
+        this.promedio = this.calcularPromedio();
+        this.estatus = this.calcularEstatus();    
+    }
+    calcularPromedio(){
+        return (this.cal1+this.cal2+this.cal3)/3;
+    }
+    calcularEstatus(){
+        return this.promedio >= 6 ? "Aprobado":"Reprobado";
+    }
+    mostrarDatos(){
+        return `
+        Nombre: ${this.nombre} <br>
+        Apellido: ${this.apellido}<br>
+        Calificacoin1: ${this.cal1}<br>
+        Calificacion2: ${this.cal2}<br>
+        Calificacion3: ${this.cal2}<br>
+        Promedio: ${this.promedio}<br>
+        Estatus: ${this.estatus} <hr>`
+    }
+}
+
+# VERSION 10
+
+    class Alumno{
+        constructor(nombre,apellido,cal1,cal2,cal3){
+            this.nombre = nombre;
+            this.apellido= apellido;
+            this.cal1 = cal1;
+            this.cal2 = cal2;
+            this.cal3 = cal3;
+            this.promedio = this.calcularPromedio();
+            this.estatus = this.calcularEstatus();    
         }
+        calcularPromedio(){
+            return (this.cal1+this.cal2+this.cal3)/3;
+        }
+        calcularEstatus(){
+            return this.promedio >= 6 ? "Aprobado":"Reprobado";
+        }
+        mostrarDatos(){
+            return `
+            Nombre: ${this.nombre} <br>
+            Apellido: ${this.apellido}<br>
+            Calificacoin1: ${this.cal1}<br>
+            Calificacion2: ${this.cal2}<br>
+            Calificacion3: ${this.cal2}<br>
+            Promedio: ${this.promedio}<br>
+            Estatus: ${this.estatus} <hr>`
+        }
+    }
+    
+    document.getElementById("formulario").addEventListener("submit", function(){
+        event.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const cal1 = parseFloat(document.getElementById('cal1').value);
+        const cal2 = parseFloat(document.getElementById('cal2').value);
+        const cal3 = parseFloat(document.getElementById('cal3').value);
+    
+        var alumno = new Alumno(nombre,apellido,cal1,cal2,cal3);
+    
+        document.getElementById('formulario').reset();  
+    
+        var li = document.createElement('li');
+        li.innerHTML = `${alumno.mostrarDatos()}`;
+        document.getElementById('salida').appendChild(li);
+    
         
-        document.getElementById("formulario").addEventListener("submit", function(){
-            event.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const apellido = document.getElementById('apellido').value;
-            const cal1 = parseFloat(document.getElementById('cal1').value);
-            const cal2 = parseFloat(document.getElementById('cal2').value);
-            const cal3 = parseFloat(document.getElementById('cal3').value);
+    
+    });
+
+HTML
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Conversor</title>
+            <link rel="stylesheet" href="css/estilos.css">
+        </head>
+        <body>
+            <h1>Registro y consultas de Alumnos</h1>
         
-            var alumno = new Alumno(nombre,apellido,cal1,cal2,cal3);
+            <form id="formulario">
+                Nombre: <input type="text" id="nombre" placeholder="Ingresa tu nombre"><br>
+                Apellido: <input type="text" id="apellido" placeholder="Ingresa tu apellido"><br>
+                Calificacion1: <input type="number" min="0" max="10" step="0.1" id="cal1">
+                Calificacion2: <input type="number" min="0" max="10" step="0.1" id="cal2">
+                Calificacion3: <input type="number" min="0" max="10" step="0.1" id="cal3"><br>
+                <input type="submit" value="Guardar y mostrar">
+            </form>
+            <div>
+                <h2>Alumnos y calificaciones</h2>
+                <ol id="salida"></ol>
+            </div>
+           
         
-            document.getElementById('salida').textContent = `${alumno.mostrarDatos()}`;
-        
-        });
+            <script src="js/main.js"></script>
+        </body>
+        </html>
+
+CSS
+
+        body{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+            font-size: .5em;
+        }
+        input{
+            margin-top: 20px;
+        }
+
+
 
 
 
